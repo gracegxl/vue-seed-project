@@ -6,7 +6,7 @@
 export default {
   data () {
     return {
-      name: '2121',
+      name: 'helloworld',
       goodsInfo: {}
     }
   },
