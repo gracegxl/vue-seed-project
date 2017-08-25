@@ -96,27 +96,27 @@
       ++i;
     }
     if(!discard && bitsInBuffer > 0) result += beta.charAt(buffer << (w2 - bitsInBuffer));
-    return result;
+    return result
   }
 
   var Base64  = function(dir, input, encode) {
-    return input ? Base64[dir](input, encode) : dir ? null : this;
-  };
+    return input ? Base64[dir](input, encode) : dir ? null : this
+  }
 
   Base64.btoa = Base64.encode = function(plain, utf8encode) {
-    plain = Base64.raw === false || Base64.utf8encode || utf8encode ? UTF8.encode(plain) : plain;
-    plain = code(plain, false, r256, b64, 8, 6);
-    return plain + '===='.slice((plain.length % 4) || 4);
-  };
+    plain = Base64.raw === false || Base64.utf8encode || utf8encode ? UTF8.encode(plain) : plain
+    plain = code(plain, false, r256, b64, 8, 6)
+    return plain + '===='.slice((plain.length % 4) || 4)
+  }
 
   Base64.atob = Base64.decode = function(coded, utf8decode) {
-    coded = String(coded).split('=');
-    var i = coded.length;
-    do {--i;
-      coded[i] = code(coded[i], true, r64, a256, 6, 8);
-    } while (i > 0);
-    coded = coded.join('');
-    return Base64.raw === false || Base64.utf8decode || utf8decode ? UTF8.decode(coded) : coded;
-  };
-export default Base64
+    coded = String(coded).split('=')
+    var i = coded.length
+    do {--i
+      coded[i] = code(coded[i], true, r64, a256, 6, 8)
+    } while (i > 0)
+    coded = coded.join('')
+    return Base64.raw === false || Base64.utf8decode || utf8decode ? UTF8.decode(coded) : coded
+  }
+  export default Base64
 
